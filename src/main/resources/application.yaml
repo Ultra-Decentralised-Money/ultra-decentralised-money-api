@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: Ultra Decentralised Money API
+  flyway:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/udm}
+    user: ${DB_USERNAME:udm}
+    password: ${DB_PASSWORD:password}
+    schemas: ${DB_SCHEMA:}
+    locations:
+      - classpath:db/store/{vendor}
+      - classpath:db/store/udm
+    out-of-order: true
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/udm}
+    username: ${DB_USERNAME:udm}
+    password: ${DB_PASSWORD:password}
+
+store:
+  cardano:
+    host: ""
+    port: 0
+    protocol-magic: 764824073
+    # Start from the block that minted the ref input for the contract
+    sync-start-slot: 158716810
+    sync-start-blockhash: bab074dc38214d96ad79a19a9d854a1d7cb95036dabf2ae4219aeef8fa0b343f
+  utxo:
+    pruning-enabled: true
+    pruning:
+      interval: 600
+  blocks:
+    epoch-calculation-interval=14400:  # 14400 = 4 hours
+
+apiPrefix: /api/v1
+
+network: mainnet
+

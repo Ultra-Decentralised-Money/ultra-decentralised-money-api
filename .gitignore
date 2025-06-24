@@ -1,0 +1,12 @@
+.idea
+.gradle
+.java-version
+build
+
+# Env
+.env.*
+
+*.mjs
+
+IGNORE_ME.md
+GOTCHA.md
